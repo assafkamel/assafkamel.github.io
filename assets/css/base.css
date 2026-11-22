@@ -1,0 +1,30 @@
+:root{
+  --desk:#008080; --face:#c0c0c0; --hi:#fff; --lo:#808080; --dark:#404040;
+  --navy:#000080; --sky:#1084d0; --text:#000; --link:#0000ee;
+  --font:"MS Sans Serif","Segoe UI",Tahoma,Verdana,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--desk);font:13px/1.45 var(--font);color:var(--text);overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--link)}
+:focus-visible{outline:1px dotted #000;outline-offset:-4px}
+
+/* Raised 3D bevel shared by windows, buttons and bars */
+.raised,#taskbar,.win,#start-menu,.task,#start,.btn{
+  border:2px solid;border-color:var(--hi) var(--dark) var(--dark) var(--hi);
+  box-shadow:inset -1px -1px var(--lo),inset 1px 1px #dfdfdf;
+}
+
+#desktop{position:fixed;inset:0 0 36px 0}
+#icons{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:14px;z-index:1}
+.icon{width:84px;background:none;border:0;padding:2px;display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff;text-shadow:1px 1px #000}
+.icon span{font-size:34px;line-height:1}
+.icon b{font-weight:400;padding:1px 3px;text-align:center}
+.icon.sel b{background:var(--navy);outline:1px dotted #fff}
+
+@media (max-width:700px){
+  #icons{flex-direction:row;flex-wrap:wrap;position:static;padding:10px;gap:8px;width:100%}
+  .icon{width:30%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

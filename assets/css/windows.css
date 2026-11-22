@@ -1,0 +1,33 @@
+.win{position:absolute;width:480px;height:360px;max-height:calc(100vh - 56px);background:var(--face);display:flex;flex-direction:column;padding:2px}
+.win.wide{width:600px;height:460px}
+.win[hidden],.win.min{display:none}
+.win.max{left:0!important;top:0!important;width:100%!important;height:100%!important;max-height:none}
+
+.titlebar{display:flex;align-items:center;gap:4px;padding:3px 3px 3px 5px;background:linear-gradient(90deg,var(--lo),#b8b8b8);color:#dfdfdf;font-weight:700;user-select:none;touch-action:none}
+.win.active .titlebar{background:linear-gradient(90deg,var(--navy),var(--sky));color:#fff}
+.titlebar .ttl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.titlebar button{width:18px;height:16px;padding:0;line-height:1;font-size:11px;font-weight:700;background:var(--face);border:2px solid;border-color:var(--hi) var(--dark) var(--dark) var(--hi)}
+.titlebar button:active{border-color:var(--dark) var(--hi) var(--hi) var(--dark)}
+
+/* White content pane with a sunken edge */
+.body{flex:1;margin-top:2px;overflow:auto;background:#fff;padding:14px 16px;border:2px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo);box-shadow:inset 1px 1px var(--dark)}
+.body h1{margin:0;font-size:24px;color:var(--navy)}
+.body h2{margin:16px 0 2px;font-size:14px;color:var(--navy)}
+.body h2:first-child{margin-top:0}
+.body h2 small{font-weight:400;color:var(--text);font-size:13px}
+.body p{margin:8px 0;max-width:70ch}
+.body ul{margin:6px 0;padding-left:20px}
+.sub{margin:2px 0 8px;color:#444}
+.entry{padding-bottom:12px;margin-bottom:12px;border-bottom:2px groove #fff}
+.entry:last-child{border:0;margin:0}
+.tech{background:#ffffe1;border:1px solid #000;padding:4px 6px}
+.pairs{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0}
+.pairs dt{font-weight:700;color:var(--navy)}
+.pairs dd{margin:0}
+
+@media (max-width:700px){
+  .win,.win.wide{left:0!important;top:0!important;width:100%!important;height:100%!important;max-height:none}
+  .titlebar [data-act=max]{display:none}
+  .pairs{grid-template-columns:1fr;gap:0}
+  .pairs dd{margin-bottom:8px}
+}

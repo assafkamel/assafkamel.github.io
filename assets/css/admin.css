@@ -1,0 +1,27 @@
+body.admin{overflow:auto;height:auto;min-height:100%;padding:1px 0}
+.admin-win{position:static;width:min(920px,96%);height:auto;max-height:none;margin:16px auto}
+.admin-win.login{width:min(380px,96%);margin-top:12vh}
+.admin-win .body{overflow:visible;padding:14px 16px 6px}
+.titlelink{width:auto!important;height:auto!important;padding:1px 8px!important;font-weight:400!important;font-size:12px!important;color:#000;text-decoration:none;background:var(--face);border:2px solid;border-color:var(--hi) var(--dark) var(--dark) var(--hi)}
+
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;border-bottom:2px groove #fff;padding-bottom:6px}
+.tabs a{padding:4px 10px;background:var(--face);color:#000;text-decoration:none;border:2px solid;border-color:var(--hi) var(--dark) var(--dark) var(--hi)}
+.tabs a.on{background:var(--navy);color:#fff}
+
+.notice{margin:0 0 12px;padding:6px 8px;background:#ffffe1;border:1px solid #000}
+.notice.error{background:#ffd7d7}
+
+.form .fld{display:grid;gap:3px;margin-bottom:10px}
+.form .fld span{font-weight:700;color:var(--navy)}
+.form input[type=text],.form input[type=email],.form input[type=url],.form input[type=number],.form input[type=password],.form textarea{
+  width:100%;padding:4px 6px;font:inherit;background:#fff;border:2px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo)}
+.form textarea{resize:vertical}
+.row{margin:0 0 14px;padding:10px 12px;border:2px groove #fff}
+.row legend{padding:0 6px;font-weight:700}
+
+.btn{padding:5px 16px;background:var(--face)}
+.btn:active{border-color:var(--dark) var(--hi) var(--hi) var(--dark)}
+.btn.primary{font-weight:700}
+
+.listing{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #ccc}
+.admin code{background:#eee;padding:0 4px}
