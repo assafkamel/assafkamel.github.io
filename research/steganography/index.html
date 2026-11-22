@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Steganography | Kamel Assaf Research</title>
+<meta name="description" content="Browser interface for a C++ image steganography service.">
+<link rel="stylesheet" href="steganography.css">
+</head>
+<body>
+<header class="top"><a href="../../">← KamelOS 98 / Research</a><span>RESEARCH PROJECT</span></header>
+<main>
+  <section class="intro">
+    <p class="eyebrow">IMAGE SECURITY · C++ / WEB</p>
+    <h1>Image Steganography</h1>
+    <p>Hide a message inside an image or retrieve a message from an image using a C++ processing service hosted on the project owner's server.</p>
+    <div class="tags"><span>C++17</span><span>HTML / CSS / JS</span><span>BMP · PNG · JPEG</span><span>Authenticated API</span></div>
+  </section>
+  <section class="panel connection">
+    <div><h2>Server connection</h2><p id="connection-state" class="muted">Not connected. Configure the service endpoint before signing in.</p></div>
+    <label>API base URL<input id="api-base" type="url" placeholder="https://stegano.example.com/api" autocomplete="url"></label>
+    <div class="actions"><button id="save-api" class="secondary">Save endpoint</button><button id="check-api" class="secondary">Check service</button></div>
+  </section>
+  <section class="panel auth">
+    <div><h2>Sign in</h2><p class="muted">Authentication is handled by your C++ server. Do not use this page over an untrusted connection.</p></div>
+    <form id="login-form"><label>Username<input id="username" name="username" autocomplete="username" required></label><label>Password<input id="password" name="password" type="password" autocomplete="current-password" required></label><div class="actions"><button type="submit">Sign in</button><button id="logout" type="button" class="secondary" hidden>Sign out</button></div></form>
+    <p id="auth-state" role="status" class="status">Signed out</p>
+  </section>
+  <section class="panel workspace" id="workspace" hidden>
+    <div class="tabs" role="tablist"><button class="tab active" id="encode-tab" role="tab" aria-selected="true" aria-controls="encode-pane">Encode message</button><button class="tab" id="decode-tab" role="tab" aria-selected="false" aria-controls="decode-pane">Decode message</button></div>
+    <section id="encode-pane" class="pane" role="tabpanel" aria-labelledby="encode-tab">
+      <h2>Hide data in an image</h2>
+      <form id="encode-form">
+        <label>Cover image<input type="file" name="image" accept=".bmp,.png,.jpg,.jpeg,image/bmp,image/png,image/jpeg" required></label>
+        <label>Secret message<textarea name="message" rows="5" maxlength="100000" required placeholder="Enter the message to hide…"></textarea></label>
+        <label>Passphrase <span class="muted">(if supported by the selected algorithm)</span><input type="password" name="passphrase" autocomplete="off"></label>
+        <label class="check"><input type="checkbox" name="legacy"> Use legacy Pascal-compatible mode (where supported)</label>
+        <button type="submit">Encode image</button>
+      </form>
+    </section>
+    <section id="decode-pane" class="pane" role="tabpanel" aria-labelledby="decode-tab" hidden>
+      <h2>Extract hidden data</h2>
+      <form id="decode-form">
+        <label>Image to inspect<input type="file" name="image" accept=".bmp,.png,.jpg,.jpeg,image/bmp,image/png,image/jpeg" required></label>
+        <label>Passphrase <span class="muted">(if required)</span><input type="password" name="passphrase" autocomplete="off"></label>
+        <label class="check"><input type="checkbox" name="legacy"> Use legacy Pascal-compatible mode (where supported)</label>
+        <button type="submit">Decode image</button>
+      </form>
+    </section>
+    <div id="result" class="result" role="status" aria-live="polite" hidden></div>
+  </section>
+  <footer><p><strong>Research note:</strong> JPEG is lossy; ordinary pixel-LSB data does not survive JPEG recompression. JPEG support therefore requires a separate transform-domain implementation. Compatibility with the original Pascal algorithm must be verified against known test images.</p><p>Image files are sent to the configured server for processing. Only connect to a server you control and trust.</p></footer>
+</main>
+<script src="steganography.js"></script>
+</body></html>
